@@ -55,6 +55,9 @@ class LinkInput extends Component {
     <div className='center'>
       <span className='link__info'>Quality: {audioQualities[this.props.bitRate].label}</span>
     </div>
+    <div className='center'>
+      <span className='link__info'>Download folder: {this.props.userDownloadsFolder}</span>
+    </div>
     </div>;
   }
 }

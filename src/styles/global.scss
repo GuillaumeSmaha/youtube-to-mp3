@@ -64,6 +64,14 @@ body {
 }
 
 .link {
+  &__info {
+      height: 50px;
+      text-shadow: $shadow;
+      color: white;
+      font-size: $font-size;
+      margin-top: 10px;
+      font-weight: 200;
+  }
     &__input {
       width: 750px;
       height: 60px;

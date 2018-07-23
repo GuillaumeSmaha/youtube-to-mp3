@@ -187,7 +187,7 @@ class AppContainer extends Component {
     if (this.state.showProgressBar) {
       return <ProgressBar progress={this.state.progress} messageText={this.state.progressMessage}/>;
     } else {
-      return <LinkInput startDownload={this.startDownload}/>;
+      return <LinkInput startDownload={this.startDownload} bitRate={this.state.bitrate}/>;
     }
   }
 }

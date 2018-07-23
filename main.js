@@ -1,6 +1,7 @@
 const {app, BrowserWindow, Menu} = require('electron');
 const isDevMode = require('electron-is-dev');
 const path = require('path');
+const audioQualities = require('./audio.qualities');
 
 if (isDevMode) {
   require('electron-reload')(__dirname + '/public');
@@ -18,6 +19,12 @@ function createWindow() {
 
   mainWindow = new BrowserWindow(browserOptions);
   mainWindow.loadURL('file://' + __dirname + '/app/index.html');
+
+  templateBiterateQualities = [];
+  for (var bitRate in audioQualities) {
+    templateBiterateQualities.push({label: audioQualities[bitRate].label, click: (function(bitRate){return () => {mainWindow.webContents.send('changeBitrate', bitRate)}})(audioQualities[bitRate].bitRate)});
+  }
+  templateBiterateQualities = templateBiterateQualities.reverse();
 
   let template = [{
     label: 'YouTube To MP3',
@@ -49,14 +56,8 @@ function createWindow() {
         }
       },
       {
-        label: 'Change Bitrate',
-        submenu: [
-          {label: '320 (Full Quality)', click: () => {mainWindow.webContents.send('changeBitrate', 320)}},
-          {label: '192 (High Quality)', click: () => {mainWindow.webContents.send('changeBitrate', 192)}},
-          {label: '160 (CD Quality)', click: () => {mainWindow.webContents.send('changeBitrate', 160)}},
-          {label: '130 (Radio Quality)', click: () => {mainWindow.webContents.send('changeBitrate', 130)}},
-          {label: '65 (Minimal Quality)', click: () => {mainWindow.webContents.send('changeBitrate', 65)}},
-        ]
+        label: 'Changer le Bitrate',
+        submenu: templateBiterateQualities
       }
     ]
   }

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+const audioQualities = require('../../audio.qualities');
 
 class LinkInput extends Component {
   constructor(props) {
@@ -46,11 +47,14 @@ class LinkInput extends Component {
   render() {
     let className = `link__input${this.state.showError ? '--error' : ''}`;
     return <div>
-      <input className={className} onChange={this.updateInputValue}
-             placeholder='https://www.youtube.com/watch?v=zmXUWKwxDg4'/>
-      <div className='center'>
-        <button className='link__button' onClick={this.startDownload}>Convert to .mp3</button>
-      </div>
+    <input className={className} onChange={this.updateInputValue}
+           placeholder='https://www.youtube.com/watch?v=zmXUWKwxDg4'/>
+    <div className='center'>
+      <button className='link__button' onClick={this.startDownload}>Convert to .mp3</button>
+    </div>
+    <div className='center'>
+      <span className='link__info'>Quality: {audioQualities[this.props.bitRate].label}</span>
+    </div>
     </div>;
   }
 }

@@ -47,7 +47,7 @@ class AppContainer extends Component {
 
   getVideoAsMp4(urlLink, userProvidedPath, title) {
     // Tell the user we are starting to get the video.
-    this.setState({progressMessage: 'Downloading...'});
+    this.setState({progressMessage: 'Téléchargement en cours...'});
     return new Promise((resolve, reject) => {
       let filename = sanitize(title || ("unknow_" + Date.now().toString()));
       let fullPath = path.join(userProvidedPath, `tmp_${filename}.mp4`);
@@ -89,7 +89,7 @@ class AppContainer extends Component {
 
   convertMp4ToMp3(paths) {
     // Tell the user we are starting to convert the file to mp3.
-    this.setState({progressMessage: 'Converting...', progress: 0});
+    this.setState({progressMessage: 'Conversion en cours...', progress: 0});
 
     return new Promise((resolve, reject) => {
       // Reset the rate limiting trigger just encase.
@@ -133,7 +133,7 @@ class AppContainer extends Component {
 
     try {
       // Tell the user we are getting the video info, and call the function to do so.
-      this.setState({progressMessage: 'Fetching video info...'});
+      this.setState({progressMessage: 'Téléchargement des informations de la vidéo...'});
       let info = await ytdl.getInfo(id);
 
       // Given the id of the video, the path in which to store the output, and the video title
@@ -170,7 +170,7 @@ class AppContainer extends Component {
     // Make sure progress bar is at 100% and tell the user we have completed the task successfully.
     this.setState({
       progress: 100,
-      progressMessage: 'Conversion successful!'
+      progressMessage: 'Conversion réussie!'
     });
 
     // Reset the progress bar to the LinkInput

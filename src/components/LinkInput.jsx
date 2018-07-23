@@ -54,16 +54,16 @@ class LinkInput extends Component {
   render() {
     let className = `link__input${this.state.showError ? '--error' : ''}`;
     return <div>
-    <input className={className} onChange={this.updateInputValue} onKeyDown={this.checkEnter}
-           placeholder='https://www.youtube.com/watch?v=zmXUWKwxDg4'/>
+      <input className={className} onChange={this.updateInputValue} onKeyDown={this.checkEnter}
+             placeholder='Url de la vidéo'/>
+      <div className='center'>
+        <button className='link__button' onClick={this.startDownload}>Convertir en .mp3</button>
+      </div>
+      <div className='center'>
+        <span className='link__info'>Qualité: {audioQualities[this.props.bitRate].label}</span>
+      </div>
     <div className='center'>
-      <button className='link__button' onClick={this.startDownload}>Convert to .mp3</button>
-    </div>
-    <div className='center'>
-      <span className='link__info'>Quality: {audioQualities[this.props.bitRate].label}</span>
-    </div>
-    <div className='center'>
-      <span className='link__info'>Download folder: {this.props.userDownloadsFolder}</span>
+      <span className='link__info'>Dossier de téléchargement: {this.props.userDownloadsFolder}</span>
     </div>
     </div>;
   }

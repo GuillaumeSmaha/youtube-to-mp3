@@ -31,10 +31,10 @@ class ProgressBar extends Component {
       </div>
       <div className={classNameError}>
         <div className='center'>
-          <span className='error'>Oups! An error occurs!</span>
+          <span className='error'>Oups! Une erreur est survenue!</span>
         </div>
         <div className='center'>
-          <button className='progress__button' onClick={this.startDownload}>Retry</button>
+          <button className='progress__button' onClick={this.startDownload}>Ressayer</button>
         </div>
         <div className='center'>
           <span className='error'>{this.props.progressErrorDetails}</span>

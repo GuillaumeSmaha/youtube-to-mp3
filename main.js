@@ -108,19 +108,19 @@ function createWindow() {
       }
     ]
   }, {
-    label: 'Edit',
+    label: 'Edition',
     submenu: [
-      {label: 'Undo', accelerator: 'CmdOrCtrl+Z', selector: 'undo:'},
-      {label: 'Redo', accelerator: 'Shift+CmdOrCtrl+Z', selector: 'redo:'},
+      {label: 'Annuler', accelerator: 'CmdOrCtrl+Z', selector: 'undo:'},
+      {label: 'Refaire', accelerator: 'Shift+CmdOrCtrl+Z', selector: 'redo:'},
       {type: 'separator'},
-      {label: 'Cut', accelerator: 'CmdOrCtrl+X', selector: 'cut:'},
-      {label: 'Copy', accelerator: 'CmdOrCtrl+C', selector: 'copy:'},
-      {label: 'Paste', accelerator: 'CmdOrCtrl+V', selector: 'paste:'}
+      {label: 'Couper', accelerator: 'CmdOrCtrl+X', selector: 'cut:'},
+      {label: 'Copier', accelerator: 'CmdOrCtrl+C', selector: 'copy:'},
+      {label: 'Coller', accelerator: 'CmdOrCtrl+V', selector: 'paste:'}
     ]
   }, {
-    label: 'Preferences',
+    label: 'Préférences',
     submenu: [{
-        label: 'Download Folder',
+        label: 'Changer le dossier de téléchargement',
         click: () => {
           mainWindow.webContents.send('promptForChangeDownloadFolder');
         }

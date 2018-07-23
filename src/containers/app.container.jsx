@@ -18,7 +18,7 @@ class AppContainer extends Component {
     this.state = {
       showProgressBar: false,
       progress: 0,
-      bitrate: localStorage.getItem('userBitrate') ? parseInt(localStorage.getItem('userBitrate')) : 160,
+      bitrate: localStorage.getItem('userBitrate') ? parseInt(localStorage.getItem('userBitrate')) : 192,
       progressMessage: '',
       userDownloadsFolder: localStorage.getItem('userSelectedFolder') ? localStorage.getItem('userSelectedFolder') : remote.app.getPath('downloads'),
     };

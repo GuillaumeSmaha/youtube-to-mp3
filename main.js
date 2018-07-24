@@ -64,7 +64,7 @@ function createWindow() {
   ];
 
   // If developing add dev menu option to menu bar
-  if (isDevMode) {
+  // if (isDevMode) {
     template.push({
       label: 'Dev Options',
       submenu: [
@@ -75,7 +75,7 @@ function createWindow() {
         }
       ]
     });
-  }
+  // }
 
   Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 

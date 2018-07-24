@@ -14,7 +14,7 @@ function createWindow() {
     width: 800,
     height: 600,
     maximizeable: false,
-    icon: path.join(__dirname, '/public/img/logo.png')
+    icon: path.join(__dirname, '/logo.png')
   };
 
   mainWindow = new BrowserWindow(browserOptions);

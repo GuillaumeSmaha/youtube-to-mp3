@@ -1,5 +1,5 @@
 {
-  "name": "youtube-to-mp3",
+  "name": "youtubetomp3",
   "productName": "YouTube To MP3",
   "version": "2.0.2",
   "description": "Electron application to convert and download YouTube videos as MP3s",

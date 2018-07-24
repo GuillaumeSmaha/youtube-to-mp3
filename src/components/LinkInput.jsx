@@ -10,6 +10,7 @@ class LinkInput extends Component {
     };
 
     this.updateInputValue = this.updateInputValue.bind(this);
+    this.checkEnter = this.checkEnter.bind(this);
     this.startDownload = this.startDownload.bind(this);
     this.getIdFromUrl = this.getIdFromUrl.bind(this);
   }
@@ -33,6 +34,12 @@ class LinkInput extends Component {
     });
   }
 
+  checkEnter(e) {
+    if (e.keyCode === 13) {
+      this.startDownload();
+    }
+  }
+
   startDownload() {
     let id = this.getIdFromUrl(this.state.inputValue);
     if (id === null) {
@@ -47,7 +54,7 @@ class LinkInput extends Component {
   render() {
     let className = `link__input${this.state.showError ? '--error' : ''}`;
     return <div>
-    <input className={className} onChange={this.updateInputValue}
+    <input className={className} onChange={this.updateInputValue} onKeyDown={this.checkEnter}
            placeholder='https://www.youtube.com/watch?v=zmXUWKwxDg4'/>
     <div className='center'>
       <button className='link__button' onClick={this.startDownload}>Convert to .mp3</button>

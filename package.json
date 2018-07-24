@@ -10,9 +10,9 @@
   "scripts": {
     "start": "electron main.js",
     "webpack": "webpack --config ./webpack.config.js",
-    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=public/img/logo.icns --prune=true --out=release-builds",
-    "package-win": "electron-packager . --overwrite --platform=win32 --asar --arch=x64 --icon=public/img/logo.ico --prune=true --out=release-builds",
-    "package-linux": "electron-packager . --overwrite --platform=linux --asar --arch=x64 --icon=public/img/logo.ico --prune=true --out=release-builds"
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=logo.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --platform=win32 --asar --arch=x64 --icon=logo.ico --prune=true --out=release-builds",
+    "package-linux": "electron-packager . --overwrite --platform=linux --asar --arch=x64 --icon=logo.ico --prune=true --out=release-builds"
   },
   "repository": {
     "type": "git",

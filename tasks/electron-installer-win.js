@@ -16,7 +16,7 @@ function getInstallerConfig () {
   return Promise.resolve({
     appDirectory: path.join(outPath, 'YouTube To MP3-win32-x64/'),
     authors: 'Guillaume Smaha',
-    noMsi: false,
+    noMsi: true,
     outputDirectory: path.join(outPath, 'windows-installer'),
     exe: 'YouTube To MP3.exe',
     setupExe: 'YouTube-To-MP3-Installer.exe',

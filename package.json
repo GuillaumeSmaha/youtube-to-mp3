@@ -11,9 +11,9 @@
     "start": "electron main.js",
     "webpack": "webpack --config ./webpack.config.js",
     "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=logo.icns --prune=true --out=release-builds",
-    "package-win": "electron-packager . --overwrite --platform=win32 --asar --arch=x64 --icon=logo.ico --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --asar.unpack=ffmpeg.exe --platform=win32 --arch=x64 --icon=logo.ico --prune=true --out=release-builds",
     "package-win-msi": "node tasks/electron-installer-win.js",
-    "package-linux": "electron-packager . --overwrite --platform=linux --asar --arch=x64 --icon=logo.ico --prune=true --out=release-builds"
+    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=logo.ico --prune=true --out=release-builds"
   },
   "repository": {
     "type": "git",
@@ -44,7 +44,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
     "electron": "^2.0.5",
-    "electron-packager": "^10.1.0",
+    "electron-packager": "^12.1.0",
     "electron-winstaller": "^2.6.4",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.9.2",

@@ -161,8 +161,8 @@ class AppContainer extends Component {
       // Signal that the download and conversion have completed and we need to tell the user about it and then reset.
       this.downloadFinished();
     } catch (e) {
-      this.setState({showProgressError: true, progressErrorDetails: e});
       console.error(e);
+      this.setState({showProgressError: true, progressErrorDetails: e.toString()});
     }
   }
 

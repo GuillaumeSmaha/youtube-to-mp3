@@ -38,12 +38,12 @@ body {
 }
 
 .progess_block {
-  height: 50%;
-  margin-top: 20%;
+  position: absolute;
+  top: 40%;
+  width: 75%;
 }
 
 .progress {
-    width: 510px;
     box-shadow: $shadow;
     background-color: white;
     height: 60px;
@@ -61,10 +61,9 @@ body {
         font-weight: 200;
         transition: color .4s ease-in-out;
         text-align: right;
-        width: 80px;
-        float: right;
-        margin-right: 20px;
-        margin-top: 16px;
+        position: absolute;
+        top: 18px;
+        left: 85%;
     }
     &__info {
         height: 50px;

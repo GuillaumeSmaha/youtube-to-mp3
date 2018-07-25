@@ -16,7 +16,10 @@ class AppContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      showProgressError: false,
       showProgressBar: false,
+      currentId: "",
+      progressErrorDetails: "",
       progress: 0,
       bitrate: localStorage.getItem('userBitrate') ? parseInt(localStorage.getItem('userBitrate')) : 192,
       progressMessage: '',
@@ -122,7 +125,10 @@ class AppContainer extends Component {
     this.setState({
       progress: 0,
       showProgressBar: true,
+      progressErrorDetails: "",
+      showProgressError: false,
       progressMessage: '...',
+      currentId: id,
     });
 
     try {
@@ -155,6 +161,7 @@ class AppContainer extends Component {
       // Signal that the download and conversion have completed and we need to tell the user about it and then reset.
       this.downloadFinished();
     } catch (e) {
+      this.setState({showProgressError: true, progressErrorDetails: e});
       console.error(e);
     }
   }
@@ -186,7 +193,7 @@ class AppContainer extends Component {
 
   render() {
     if (this.state.showProgressBar) {
-      return <ProgressBar progress={this.state.progress} messageText={this.state.progressMessage}/>;
+      return <ProgressBar progress={this.state.progress} messageText={this.state.progressMessage} startDownload={this.startDownload} showProgressError={this.state.showProgressError} progressErrorDetails={this.state.progressErrorDetails} currentId={this.state.currentId}/>;
     } else {
       return <LinkInput startDownload={this.startDownload} bitRate={this.state.bitrate} userDownloadsFolder={this.state.userDownloadsFolder}/>;
     }

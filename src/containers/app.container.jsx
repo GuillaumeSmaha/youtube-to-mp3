@@ -46,7 +46,8 @@ class AppContainer extends Component {
     // Tell the user we are starting to get the video.
     this.setState({progressMessage: 'Downloading...'});
     return new Promise((resolve, reject) => {
-      let fullPath = path.join(userProvidedPath, `tmp_${title}.mp4`);
+      let filename = sanitize(title)
+      let fullPath = path.join(userProvidedPath, `tmp_${filename}.mp4`);
 
       // Create a reference to the stream of the video being downloaded.
       let videoObject = ytdl(urlLink, {filter: 'audioonly'});
@@ -106,7 +107,7 @@ class AppContainer extends Component {
             }, 800);
           }
         })
-        .output(fs.createWriteStream(path.join(paths.folderPath, sanitize(paths.fileTitle))))
+        .output(fs.createWriteStream(path.join(paths.folderPath, paths.fileTitle)))
         .on('end', () => {
           // After the mp3 is wrote to the disk we set the progress to 99% the last 1% is the removal of the temp file.
           this.setState({progress: 99});

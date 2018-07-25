@@ -81,7 +81,7 @@ class AppContainer extends Component {
           // completion of step. Then we return the path to the temp file, the output path, and the desired filename.
           this.setState({progress: 100});
           setTimeout(() => {
-            resolve({filePath: fullPath, folderPath: userProvidedPath, fileTitle: `${title}.mp3`});
+            resolve({filePath: fullPath, folderPath: userProvidedPath, fileTitle: `${filename}.mp3`});
           }, 1000);
         });
     });

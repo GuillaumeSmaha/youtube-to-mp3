@@ -97,7 +97,7 @@ class AppContainer extends Component {
 
       // Pass ffmpeg the temp mp4 file. Set the path where is ffmpeg binary for the platform. Provided desired format.
       ffmpeg(paths.filePath)
-        .setFfmpegPath(binaries.path)
+        .setFfmpegPath(binaries.path.replace('app.asar', 'app.asar.unpacked'))
         .format('mp3')
         .audioBitrate(this.state.bitrate)
         .on('progress', (progress) => {

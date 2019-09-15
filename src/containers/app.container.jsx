@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import * as path from 'path';
 
 const ffmpeg = window.require('fluent-ffmpeg');
-const binaries = window.require('ffmpeg-binaries');
+const binaries = window.require('ffmpeg-static');
 const sanitize = window.require('sanitize-filename');
 const {ipcRenderer, remote} = window.require('electron');
 const ytdl = window.require('ytdl-core');
@@ -49,7 +49,7 @@ class AppContainer extends Component {
     // Tell the user we are starting to get the video.
     this.setState({progressMessage: 'Downloading...'});
     return new Promise((resolve, reject) => {
-      let filename = sanitize(title)
+      let filename = sanitize(title || ("unknow_" + Date.now().toString()));
       let fullPath = path.join(userProvidedPath, `tmp_${filename}.mp4`);
 
       // Create a reference to the stream of the video being downloaded.
@@ -97,7 +97,7 @@ class AppContainer extends Component {
 
       // Pass ffmpeg the temp mp4 file. Set the path where is ffmpeg binary for the platform. Provided desired format.
       ffmpeg(paths.filePath)
-        .setFfmpegPath(binaries.ffmpegPath().replace('app.asar', 'app.asar.unpacked'))
+        .setFfmpegPath(binaries.path)
         .format('mp3')
         .audioBitrate(this.state.bitrate)
         .on('progress', (progress) => {
